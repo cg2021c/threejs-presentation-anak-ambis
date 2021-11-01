@@ -4,5 +4,5 @@ this is by looking at an example. If you open up the 01-advanced-3d-geometriesco
 screenshot shows this geometry:
 
 <a href="../learning-threejs-master/chapter-06/01-advanced-3d-geometries-convex.html">
-![io](../img/5.1.png)
+  <img src="../img/5.1.png">
 </a>
