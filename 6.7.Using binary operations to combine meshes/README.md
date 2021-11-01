@@ -10,9 +10,13 @@ In this section, we'll look at a different way of creating geometries. In this c
 
 In the following sections, we'll look at each of these functions in more detail. The following screenshot shows an example of what you can create by just using the union and subtract functionalities one after the other:
 
-<a href="../learning-threejs-master/chapter-06/08-binary-operations.html">
-  <img src="../img/5.8.png">
-</a>
+|  Action   |                                                   Result                                                    |
+| :-------: | :---------------------------------------------------------------------------------------------------------: |
+|   union   |  <a href="../learning-threejs-master/chapter-06/08-binary-operations.html"> <img src="../img/5.8.png"></a>  |
+|   :---:   |                                                    :---:                                                    |
+| substract | <a href="../learning-threejs-master/chapter-06/08-binary-operations.html"> <img src="../img/5.8.1.png"></a> |
+|   :---:   |                                                    :---:                                                    |
+| intersect | <a href="../learning-threejs-master/chapter-06/08-binary-operations.html"> <img src="../img/5.8.2.png"></a> |
 
 <a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/08-binary-operations.html"><h3>Try Yourself</h3></a>
 

@@ -1,4 +1,5 @@
-Creating 3D text
+# Creating 3D text
+
 In the next part of this chapter, we'll have a quick look at how you can create 3D text effects. First, we'll look at how to render text using the fonts provided by Three.js, and after that, we'll have a quick look at how you can use your own fonts for this. Rendering text Rendering text in Three.js is very easy. All you have to do is define the font you want to use and use the same extrude properties we saw when we discussed THREE.ExtrudeGeometry. The following screenshot shows the 07-textgeometry.html example of how to render text in Three.js:
 
 <a href="../learning-threejs-master/chapter-06/07-text-geometry.html">
