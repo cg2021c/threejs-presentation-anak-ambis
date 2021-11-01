@@ -116,6 +116,10 @@
 
                 text2 = createMesh(new THREE.TextGeometry("Three.js", options));
                 scene.add(text2);
+                text3 = createMesh(new THREE.TextGeometry("AMBIS", options));
+                text3.position.z = -100;
+                text3.position.y = 200;
+                scene.add(text3);
             };
 
         };
