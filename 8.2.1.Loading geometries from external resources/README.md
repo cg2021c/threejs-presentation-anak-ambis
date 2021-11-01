@@ -15,3 +15,5 @@ table shows the file formats that are supported by Three.js:
 | Babylon | Babylon is a 3D JavaScript game library. It stores models in its own internal format. |
 | PDB | This is a very specialized format, created by **Protein Data Bank**, that is used to specify what proteins look like. Three.js can load and visualize protein in this format |
 | PLY | This format is called the **Polygon** file format. This is most often used to store information from 3D scanners. |
+
+Next we'll revisit some of these formats. For now, we start with the first one on the list.
