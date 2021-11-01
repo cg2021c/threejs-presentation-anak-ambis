@@ -23,7 +23,7 @@ Creating groups is very easy. Every mesh we create can contain child elements, w
 | :---: | :---: 
 | rotate | ![screen-gif](https://media.giphy.com/media/70EDp6aHFIP24sSZhF/giphy.gif)
 
-Scale and position are very straightforward. One thing to keep in mind, though, is that when we rotate a group, it doesn't rotate the objects inside it separately; it rotates the entire group around its own center.In this example, we placed an arrow using the THREE.ArrowHelper object at the center of the group to indicate the rotation point:
+Scale and position are very easy. One thing to keep in mind, though, is that when we rotate a group, it doesn't rotate the objects inside it separately; it rotates the entire group around its own center.In this example, we placed an arrow using the THREE.ArrowHelper object at the center of the group to indicate the rotation point:
 
 ```bash
 var arrow = new THREE.ArrowHelper(new THREE.Vector3(0, 1, 0),
