@@ -12,4 +12,4 @@ geometries and cover the following subjects:
 
 We'll start with the first one from this list, THREE.ConvexGeometry
 
-note: All the picture in 5.x is clickable. it will redirect to the particular code
+note: All the picture in 6.x is clickable. it will redirect to the particular code
