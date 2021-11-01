@@ -21,25 +21,10 @@ loader.load("../assets/models/SolidHead_2_lowPoly_42k.stl", function (geometry) 
 ```
 3. Result [09-load-stl.html](https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-08/09-load-stl.html)
 
-## VRML
-Usage
-1. Include ```<script type="text/javascript" src="../libs/VRMLLoader.js"></script>```
-2. Then load models 
-```js
-var loader = new THREE.VRMLLoader();
-var group = new THREE.Object3D();
-loader.load("../assets/models/vrml/tree.wrl", function (model) {
-  model.traverse();
-  model.scale.set(10, 10, 10);
-  scene.add(model);
-});
-```
 From the source code for these examples, we might see that for some of them, we need to change some material
 properties or do some scaling before the model is rendered correctly. The reason we need to do this is because of the 
 way the model is created in its external application, giving it different dimensions and grouping than we normally use in 
 Three.js.
-
-3. Result [16-load-vrml.html](https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-08/16-load-vrml.html)
 
 ## BABYLON
 The Babylon loader is slightly different from the other loaders. With this loader, we don't load a single THREE.Mesh or THREE.Geometry instance, but with this 
