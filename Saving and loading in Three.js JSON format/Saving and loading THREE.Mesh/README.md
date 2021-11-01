@@ -5,6 +5,7 @@ single `THREE.Mesh`, or we can use it to save and load a complete scene.
 ## Saving and loading THREE.Mesh
 To demonstrate saving and loading, we used a simple example based on **THREE.TorusKnotGeometry**. With this example, <br>
 we can create a **torus knot** and using the save button from the Save & Load menu, we can save the current geometry. For this example, we save using the HTML5 local storage API. This API allows us to easily store persistent information in the client's browser and retrieve it at a later time. <br>
+
 The following shows this example: <br>
 
 The only thing we need to do to export `THREE.Mesh` as JSON is the following: 
@@ -51,5 +52,6 @@ if (json) {
 ```
 - Use the `localStorage.getItem` function provided by the HTML5 local storage API.
 - Three.js provides a helper object called `THREE.ObjectLoader`, which we can use to convert JSON to `THREE.Mesh`.
-- The loader also provides a `load` function, where we can pass in the URL to a file containing the JSON definition. <br><br>
+- The loader also provides a `load` function, where we can pass in the URL to a file containing the JSON definition.  
+
 We only saved `THREE.Mesh`. Use `THREE.SceneExporter` to save the complete scene, including the lights and the cameras. 
