@@ -1,143 +1,116 @@
 <!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js webgl - glTF 2.0 - compressed</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="main.css">
+	</head>
 
-<html>
+	<body>
+		<div id="info">
+			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> - GLTFLoader + compression extensions<br />
+			<a href="https://sketchfab.com/3d-models/coffeemat-7fb196a40a6e4697aad9ca2f75c8b33d" target="_blank" rel="noopener">Coffeemat</a> by
+			<a href="https://sketchfab.com/OFFcours1" target="_blank" rel="noopener">Roman Red</a>
+		</div>
 
-<head>
-    <title>Example 08.05 - Load blender model </title>
-    <script type="text/javascript" src="../libs/three.js"></script>
+		<script type="module">
 
-    <script type="text/javascript" src="../libs/stats.js"></script>
-    <script type="text/javascript" src="../libs/dat.gui.js"></script>
+			import * as THREE from '../build/three.module.js';
 
-    <script type="text/javascript" src="../libs/glTFLoader.js"></script>
-    <script type="text/javascript" src="../libs/glTF-parser.js"></script>
-    <script type="text/javascript" src="../libs/glTFAnimation.js"></script>
-    <script type="text/javascript" src="../libs/glTFLoaderUtils.js"></script>
-    <style>
-        body {
-            /* set margin to 0 and overflow to hidden, to go fullscreen */
-            margin: 0;
-            overflow: hidden;
-        }
-    </style>
-</head>
-<body>
+			import { RoomEnvironment } from './jsm/environments/RoomEnvironment.js';
+			import { OrbitControls } from './jsm/controls/OrbitControls.js';
+			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 
-<div id="Stats-output">
-</div>
-<!-- Div which will hold the Output -->
-<div id="WebGL-output">
-</div>
+			import { KTX2Loader } from './jsm/loaders/KTX2Loader.js';
+			import { MeshoptDecoder } from './jsm/libs/meshopt_decoder.module.js';
 
-<!-- Javascript code that runs our Three.js examples -->
-<script type="text/javascript">
+			let camera, scene, renderer;
 
-    // once everything is loaded, we run our Three.js stuff.
-    function init() {
+			init();
+			render();
 
-        var stats = initStats();
+			function init() {
 
-        // create a scene, that will hold all our elements such as objects, cameras and lights.
-        var scene = new THREE.Scene();
+				const container = document.createElement( 'div' );
+				document.body.appendChild( container );
 
-        // create a camera, which defines where we're looking at.
-        var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.toneMapping = THREE.ACESFilmicToneMapping;
+				renderer.toneMappingExposure = 1;
+				renderer.outputEncoding = THREE.sRGBEncoding;
+				container.appendChild( renderer.domElement );
 
-        // create a render and set the size
-        var webGLRenderer = new THREE.WebGLRenderer();
-        webGLRenderer.setClearColor(new THREE.Color(0xEEEEEE, 1.0));
-        webGLRenderer.setSize(window.innerWidth, window.innerHeight);
-        webGLRenderer.shadowMapEnabled = true;
+				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
+				camera.position.set( 0, 100, 0 );
 
-        // position and point the camera to the center of the scene
-        camera.position.x = -30;
-        camera.position.y = 40;
-        camera.position.z = 50;
-        camera.lookAt(new THREE.Vector3(0, 10, 0));
+				const environment = new RoomEnvironment();
+				const pmremGenerator = new THREE.PMREMGenerator( renderer );
 
+				scene = new THREE.Scene();
+				scene.background = new THREE.Color( 0xbbbbbb );
+				scene.environment = pmremGenerator.fromScene( environment ).texture;
 
-        // add spotlight for the shadows
-        var spotLight = new THREE.SpotLight(0xffffff);
-        spotLight.position.set(0, 50, 30);
-        spotLight.intensity = 2;
-        scene.add(spotLight);
+				const grid = new THREE.GridHelper( 500, 10, 0xffffff, 0xffffff );
+				grid.material.opacity = 0.5;
+				grid.material.depthWrite = false;
+				grid.material.transparent = true;
+				scene.add( grid );
 
-        // add the output of the renderer to the html element
-        document.getElementById("WebGL-output").appendChild(webGLRenderer.domElement);
+				const ktx2Loader = new KTX2Loader()
+					.setTranscoderPath( 'js/libs/basis/' )
+					.detectSupport( renderer );
 
-        // call the render function
-        var step = 0;
+				const loader = new GLTFLoader().setPath( 'models/gltf/' );
+				loader.setKTX2Loader( ktx2Loader );
+				loader.setMeshoptDecoder( MeshoptDecoder );
+				loader.load( 'coffeemat.glb', function ( gltf ) {
 
+					// coffeemat.glb was produced from the source scene using gltfpack:
+					// gltfpack -i coffeemat/scene.gltf -o coffeemat.glb -cc -tc
+					// The resulting model uses EXT_meshopt_compression (for geometry) and KHR_texture_basisu (for texture compression using ETC1S/BasisLZ)
 
-        // setup the control gui
-        var controls = new function () {
-            // we need the first child, since it's a multimaterial
+					gltf.scene.position.y = 8;
 
+					scene.add( gltf.scene );
 
-        };
+					render();
 
-        var gui = new dat.GUI();
-        var mesh;
+				} );
 
-        var loader = new THREE.JSONLoader();
-        loader.load('../assets/models/misc_chair01.js', function (geometry, mat) {
-            mesh = new THREE.Mesh(geometry, mat[0]);
+				const controls = new OrbitControls( camera, renderer.domElement );
+				controls.addEventListener( 'change', render ); // use if there is no animation loop
+				controls.minDistance = 400;
+				controls.maxDistance = 1000;
+				controls.target.set( 10, 90, - 16 );
+				controls.update();
 
-            mesh.scale.x = 15;
-            mesh.scale.y = 15;
-            mesh.scale.z = 15;
+				window.addEventListener( 'resize', onWindowResize );
 
-            scene.add(mesh);
+			}
 
-        }, '../assets/models/');
+			function onWindowResize() {
 
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
 
-        render();
+				renderer.setSize( window.innerWidth, window.innerHeight );
 
+				render();
 
-        function render() {
-            stats.update();
+			}
 
-            if (mesh) {
-                mesh.rotation.y += 0.02;
-            }
+			//
 
+			function render() {
 
-            // render using requestAnimationFrame
-            requestAnimationFrame(render);
-            webGLRenderer.render(scene, camera);
-        }
+				renderer.render( scene, camera );
 
-        function initStats() {
+			}
 
-            var stats = new Stats();
-            stats.setMode(0); // 0: fps, 1: ms
+		</script>
 
-            // Align top-left
-            stats.domElement.style.position = 'absolute';
-            stats.domElement.style.left = '0px';
-            stats.domElement.style.top = '0px';
-
-            document.getElementById("Stats-output").appendChild(stats.domElement);
-
-            return stats;
-        }
-
-        const loaderGLTF = new THREE.glTFLoader();
-        loaderGLTF.load( 'mymodel.glb', function ( gltf ) {
-            const checkerMesh = gltf.scene.children.find((child) => child.name === "Checker");
-            checkerMesh.scale.set(checkerMesh.scale.x * 0.4, checkerMesh.scale.y * 0.4, checkerMesh.scale.z * 0.4);
-            checkerMesh.geometry.computeBoundingBox();
-            console.log(checkerMesh.geometry.boundingBox);
-            checkerMesh.position.y += checkerMesh.scale.y + 0.05;
-            addCheckers(checkerMesh);
-        }, undefined, function ( error ) {
-        
-            console.error( error );
-        
-        } );
-    }
-    window.onload = init;
-</script>
-</body>
+	</body>
 </html>
