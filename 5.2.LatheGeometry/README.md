@@ -6,7 +6,27 @@ THREE.LatheGeometry allows you to create shapes from a smooth curve. This curve 
   <img src="../img/5.2.png">
 </a>
 
-In the preceding screenshot, you can see the points used to create this geometry as a set of small red spheres. The positions of these points are passed in to THREE.LatheGeometry, together with a couple of other arguments.
+In the preceding screenshot, you can see the points used to create this geometry as a set of small red spheres. The positions of these points are passed in to THREE.LatheGeometry, together with a couple of other arguments. Before we look at all the arguments, let's look at the code used to create the individual points and how THREE.LatheGeometry uses this points:
+
+```js
+function generatePoints(segments, phiStart, phiLength) {
+ var points = [];
+ var height = 5;
+ var count = 30;
+ for (var i = 0; i < count; i++) {
+ points.push(new THREE.Vector3((Math.sin(i * 0.2) + Math.cos(i
+ * 0.3)) * height + 12, 0, ( i - count ) + count / 2));
+ }
+ ...
+ // use the same points to create a LatheGeometry
+ var latheGeometry = new THREE.LatheGeometry (points, segments,
+ phiStart, phiLength);
+ latheMesh = createMesh(latheGeometry);
+ scene.add(latheMesh);
+}
+```
+
+In this piece of JavaScript, you can see that we generate 30 points whose x coordinate is based on a combination of sine and cosine functions, while the z coordinate is based on the i and count variables. This creates a spline visualized by the red dots in the preceding screenshot. Based on these points, we can create THREE.LatheGeometry. Besides the array of vertices, THREE.LatheGeometry takes a couple of other arguments. The following table lists all the arguments:
 
 | Parameter | Mandatory | Description                                                                                                                                                                     |
 | --------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
