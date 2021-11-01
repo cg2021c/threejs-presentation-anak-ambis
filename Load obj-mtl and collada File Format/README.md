@@ -9,6 +9,7 @@
 - Therefore, if you need animations for your game or movie, then you’re better off using the FBX and COLLADA formats. The OBJ file format is a simple and open format with wide export and import support among CAD software.
 - This means if you share your 3D model as an OBJ file, it’s extremely likely that other CAD software will interpret it correctly and consistently.
 - As example the popular software that support .obj format are Blender, Autodesk, MeshLab etc.
+- [source](https://all3dp.com/1/obj-file-format-3d-printing-cad/)
 - Here is the .obj file look likes [butterfly.obj](butterfly.obj)
   <br>
 
@@ -45,6 +46,8 @@ obj_loader.load("./butterfly.obj", function (object) {
 - The standard has widespread support among different computer software packages, making it a useful format for interchange of materials.
 - Because the OBJ file format won’t let you store color and texture information, it makes up for this by allowing the storage of this information in thi file format. By using these two files together, it is possible to render a multi-color textured model.
 - It will aply similar behavior with THREE.Material
+- Three.js load obj and mtl with OBJMTLLoader
+- [source](https://all3dp.com/1/obj-file-format-3d-printing-cad/)
 - Here is the .mtl file look likes [butterfly.mtl](butterfly.mtl)
 
 ```js
@@ -77,9 +80,37 @@ objmtl_loader.load("./butterfly.obj", "./butterfly.mtl", function (object) {
 - The material of the .mtl file is using the texture and color from .png file [butterflywings.png](butterflywings.png)
 
 #### Butterfly obj without THREE.Material | Butterfly obj with butterfly.mtl
+
 ![image](https://user-images.githubusercontent.com/55375390/139661140-a54e90b8-5d65-4b2d-8532-c09a7cdf4d2d.png)
 
 #### Butterfly obj with THREE.Material | Butterfly obj with butterfly.mtl
+
 ![image](https://user-images.githubusercontent.com/55375390/139661204-cf9d1979-88e5-40fd-9f11-e45b254c4c64.png)
 
 # Load Collada File Format
+
+- COLLADA (COLLAborative Design Activity) is an interchange file format for interactive 3D applications. It is managed by the nonprofit technology consortium, the Khronos Group, and has been adopted by ISO as a publicly available specification, ISO/PAS 17506.
+- COLLADA defines an open standard XML schema for exchanging digital assets among various graphics software applications that might otherwise store their assets in incompatible file formats.
+- COLLADA documents that describe digital assets are XML files, usually identified with a .dae (digital asset exchange) filename extension.
+- Similar to the STL format, DAE files store 3D shapes as mesh geometries: a mesh of simple shapes that define a 3D model’s surface.
+- Unfortunately, many users have mentioned that DAE files can take a long time to export in certain programs.
+- Also, in a test, one user found that while DAE files took up less space than the FBX files, they still took more than an OBJ, showing that DAE files aren’t super storage efficient.
+- Three.js load collada with ColladaLoader
+- [source](https://all3dp.com/2/collada-file-dae-file-simply-explained/)
+
+```js
+// ! Collada
+// model from http://www.thingiverse.com/thing:69709
+var loader = new THREE.ColladaLoader();
+var mesh;
+
+loader.load("./dae/Truck_dae.dae", function (object) {
+  mesh = object.scene.children[0].children[0].clone();
+  mesh.scale.set(4, 4, 4);
+  scene.add(mesh);
+});
+```
+
+#### Truck model from collada (.dae) format file
+
+...

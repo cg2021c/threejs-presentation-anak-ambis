@@ -30,131 +30,129 @@
 
 <!-- Javascript code that runs our Three.js examples -->
 <script type="text/javascript">
+  function init() {
 
-    function init() {
+    var stats = initStats();
 
-        var stats = initStats();
+    // create a scene, that will hold all our elements such as objects, cameras and lights.
+    var scene = new THREE.Scene();
 
-        // create a scene, that will hold all our elements such as objects, cameras and lights.
-        var scene = new THREE.Scene();
+    // create a camera, which defines where we're looking at.
+    var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-        // create a camera, which defines where we're looking at.
-        var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    // create a render and set the size
+    var webGLRenderer = new THREE.WebGLRenderer();
+    webGLRenderer.setClearColor(new THREE.Color(0xaaaaff, 1.0));
+    webGLRenderer.setSize(window.innerWidth, window.innerHeight);
+    webGLRenderer.shadowMapEnabled = true;
 
-        // create a render and set the size
-        var webGLRenderer = new THREE.WebGLRenderer();
-        webGLRenderer.setClearColor(new THREE.Color(0xaaaaff, 1.0));
-        webGLRenderer.setSize(window.innerWidth, window.innerHeight);
-        webGLRenderer.shadowMapEnabled = true;
+    // position and point the camera to the center of the scene
+    camera.position.x = 130;
+    camera.position.y = 40;
+    camera.position.z = 50;
+    camera.lookAt(scene.position);
+    scene.add(camera);
 
-        // position and point the camera to the center of the scene
-        camera.position.x = 130;
-        camera.position.y = 40;
-        camera.position.z = 50;
-        camera.lookAt(scene.position);
-        scene.add(camera);
+    // add spotlight for the shadows
+    var spotLight = new THREE.DirectionalLight(0xffffff);
+    spotLight.position.set(30, 40, 50);
+    spotLight.intensity = 1;
+    scene.add(spotLight);
 
-        // add spotlight for the shadows
-        var spotLight = new THREE.DirectionalLight(0xffffff);
-        spotLight.position.set(30, 40, 50);
-        spotLight.intensity = 1;
-        scene.add(spotLight);
+    document.getElementById("WebGL-output").appendChild(webGLRenderer.domElement);
 
-        document.getElementById("WebGL-output").appendChild(webGLRenderer.domElement);
+    // ! OBJ
+    var obj_loader = new THREE.OBJLoader();
+    var obj_mesh;
+    obj_loader.load('./butterfly.obj', function (object) {
+      var material = new THREE.MeshLambertMaterial({color: 0xfff000});
 
-        // ! OBJ
-        var obj_loader = new THREE.OBJLoader();
-        var obj_mesh;
-        obj_loader.load('./butterfly.obj', function (object) {
-            var material = new THREE.MeshLambertMaterial({color: 0xfff000});
+      // object is a group of meshes. For
+      // each mesh set the material, and compute the information
+      // three.js needs for rendering.
+      object.children.forEach(function (child) {
+          child.material = material;
+          child.material.side = THREE.DoubleSide;
+          child.geometry.computeFaceNormals();
+          child.geometry.computeVertexNormals();
+      });
 
-            // object is a group of meshes. For
-            // each mesh set the material, and compute the information
-            // three.js needs for rendering.
-            object.children.forEach(function (child) {
-                child.material = material;
-                child.material.side = THREE.DoubleSide;
-                child.geometry.computeFaceNormals();
-                child.geometry.computeVertexNormals();
-            });
+      object.scale.set(140, 140, 140);
+      object.position.z = 40;
 
-            object.scale.set(140, 140, 140);
-            object.position.z = 40;
+      obj_mesh = object;
+      scene.add(object);
+    });
 
-            obj_mesh = object;
-            scene.add(object);
-        });
+    // ! OBJMTL
+    var objmtl_loader = new THREE.OBJMTLLoader();
+    var objmtl_mesh;
+    objmtl_loader.load('./butterfly.obj', './butterfly.mtl', function (object) {
 
-        // ! OBJMTL
-        var objmtl_loader = new THREE.OBJMTLLoader();
-        var objmtl_mesh;
-        objmtl_loader.load('./butterfly.obj', './butterfly.mtl', function (object) {
+      // configure the wings
+      var wing2 = object.children[5].children[0];
+      var wing1 = object.children[4].children[0];
 
-            // configure the wings
-            var wing2 = object.children[5].children[0];
-            var wing1 = object.children[4].children[0];
+      wing1.material.opacity = 0.6;
+      wing1.material.transparent = true;
+      wing1.material.depthTest = false;
+      wing1.material.side = THREE.DoubleSide;
 
-            wing1.material.opacity = 0.6;
-            wing1.material.transparent = true;
-            wing1.material.depthTest = false;
-            wing1.material.side = THREE.DoubleSide;
+      wing2.material.opacity = 0.6;
+      wing2.material.transparent = true;
+      wing2.material.depthTest = false;
+      wing2.material.side = THREE.DoubleSide;
 
-            wing2.material.opacity = 0.6;
-            wing2.material.transparent = true;
-            wing2.material.depthTest = false;
-            wing2.material.side = THREE.DoubleSide;
+      object.scale.set(140, 140, 140);
+      object.position.z = -40;
 
-            object.scale.set(140, 140, 140);
-            object.position.z = -40;
+      objmtl_mesh = object;
+      scene.add(objmtl_mesh);            
+    });
 
-            objmtl_mesh = object;
-            scene.add(objmtl_mesh);            
-        });
+    render();
 
-        render();
+    function render() {
+      stats.update();
 
-        function render() {
-            stats.update();
-
-            if (obj_mesh) {
-                obj_mesh.rotation.y += 0.006;
-                obj_mesh.rotation.x += 0.006;
-                obj_mesh.rotation.z += 0.006;
-            }
-            if (objmtl_mesh) {
-                objmtl_mesh.rotation.y += 0.006;
-                objmtl_mesh.rotation.x += 0.006;
-                objmtl_mesh.rotation.z += 0.006;
-            }
-            
-            requestAnimationFrame(render);
-            webGLRenderer.render(scene, camera);
-        }
-
-        function initStats() {
-
-            var stats = new Stats();
-            stats.setMode(0); // 0: fps, 1: ms
-
-            // Align top-left
-            stats.domElement.style.position = 'absolute';
-            stats.domElement.style.left = '0px';
-            stats.domElement.style.top = '0px';
-
-            document.getElementById("Stats-output").appendChild(stats.domElement);
-
-            return stats;
-        }
-    }
-    
-    function onResize() {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
+      if (obj_mesh) {
+          obj_mesh.rotation.y += 0.006;
+          obj_mesh.rotation.x += 0.006;
+          obj_mesh.rotation.z += 0.006;
+      }
+      if (objmtl_mesh) {
+          objmtl_mesh.rotation.y += 0.006;
+          objmtl_mesh.rotation.x += 0.006;
+          objmtl_mesh.rotation.z += 0.006;
+      }
+      
+      requestAnimationFrame(render);
+      webGLRenderer.render(scene, camera);
     }
 
-    window.onload = init;
-    window.addEventListener('resize', onResize, false);
+    function initStats() {
+
+      var stats = new Stats();
+
+      // Align top-left
+      stats.domElement.style.position = 'absolute';
+      stats.domElement.style.left = '0px';
+      stats.domElement.style.top = '0px';
+
+      document.getElementById("Stats-output").appendChild(stats.domElement);
+
+      return stats;
+    }
+  }
+  
+  function onResize() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+
+  window.onload = init;
+  window.addEventListener('resize', onResize, false);
 </script>
 </body>
 </html>
