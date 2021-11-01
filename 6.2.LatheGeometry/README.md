@@ -6,6 +6,12 @@ THREE.LatheGeometry allows you to create shapes from a smooth curve. This curve 
   <img src="../img/5.2.png">
 </a>
 
+<a href="../learning-threejs-master/chapter-06/02-advanced-3d-geometries-lathe.html"><h3>CODE</h3></a>
+<a href="../learning-threejs-master/chapter-06/02-advanced-3d-geometries-lathe.html"><h3>CODE</h3></a>
+<a href="../learning-threejs-master/chapter-06/02-advanced-3d-geometries-lathe.html"><h3>CODE</h3></a>
+
+<a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/02-advanced-3d-geometries-lathe.html"><h3>Try Yourself</h3></a>
+<a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/02-advanced-3d-geometries-lathe.html"><h3>Try Yourself</h3></a>
 <a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/02-advanced-3d-geometries-lathe.html"><h3>Try Yourself</h3></a>
 
 In the preceding screenshot, you can see the points used to create this geometry as a set of small red spheres. The positions of these points are passed in to THREE.LatheGeometry, together with a couple of other arguments. Before we look at all the arguments, let's look at the code used to create the individual points and how THREE.LatheGeometry uses this points:

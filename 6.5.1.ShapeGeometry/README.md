@@ -6,6 +6,12 @@ Extruding from SVG When we discussed THREE.ShapeGeometry, we mentioned that SVG 
   <img src="../img/5.5.png">
 </a>
 
+<a href="../learning-threejs-master/chapter-06/05-extrude-svg.html"><h3>CODE</h3></a>
+<a href="../learning-threejs-master/chapter-06/05-extrude-svg.html"><h3>CODE</h3></a>
+<a href="../learning-threejs-master/chapter-06/05-extrude-svg.html"><h3>CODE</h3></a>
+
+<a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/05-extrude-svg.html"><h3>Try Yourself</h3></a>
+<a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/05-extrude-svg.html"><h3>Try Yourself</h3></a>
 <a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/05-extrude-svg.html"><h3>Try Yourself</h3></a>
 
 The following code fragment shows how we can load in the SVG you saw earlier, convert it to THREE.ExtrudeGeometry, and show it on screen:

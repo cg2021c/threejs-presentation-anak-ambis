@@ -22,6 +22,12 @@ In our example, we do something similar. However, instead of creating a flat pla
   <img src="../img/5.6.png">
 </a>
 
+<a href="../learning-threejs-master/chapter-06/06-parametric-geometries.html"><h3>CODE</h3></a>
+<a href="../learning-threejs-master/chapter-06/06-parametric-geometries.html"><h3>CODE</h3></a>
+<a href="../learning-threejs-master/chapter-06/06-parametric-geometries.html"><h3>CODE</h3></a>
+
+<a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/06-parametric-geometries.html"><h3>Try Yourself</h3></a>
+<a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/06-parametric-geometries.html"><h3>Try Yourself</h3></a>
 <a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/06-parametric-geometries.html"><h3>Try Yourself</h3></a>
 
 In this example, you can also see the arguments we can pass
