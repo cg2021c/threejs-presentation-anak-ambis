@@ -9,10 +9,8 @@
     <script type="text/javascript" src="../libs/stats.js"></script>
     <script type="text/javascript" src="../libs/dat.gui.js"></script>
 
-    <script type="text/javascript" src="../libs/glTFLoader.js"></script>
-    <script type="text/javascript" src="../libs/glTF-parser.js"></script>
-    <script type="text/javascript" src="../libs/glTFAnimation.js"></script>
-    <script type="text/javascript" src="../libs/glTFLoaderUtils.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js" integrity="sha512-yNJzAsg5JyP91u+sLHlUDULMBd3hmEiVkYeeN1cQBKaLZ7EyT6oH2u5THNIRM2Fu6VKcZJv+F/QAp1h/qzy9Ow==" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
     <style>
         body {
             /* set margin to 0 and overflow to hidden, to go fullscreen */
@@ -123,7 +121,7 @@
             return stats;
         }
 
-        const loaderGLTF = new THREE.glTFLoader();
+        const loaderGLTF = new THREE.GLTFLoader();
         loaderGLTF.load( 'mymodel.glb', function ( gltf ) {
             const checkerMesh = gltf.scene.children.find((child) => child.name === "Checker");
             checkerMesh.scale.set(checkerMesh.scale.x * 0.4, checkerMesh.scale.y * 0.4, checkerMesh.scale.z * 0.4);
