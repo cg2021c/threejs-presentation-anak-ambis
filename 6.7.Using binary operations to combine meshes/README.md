@@ -14,6 +14,8 @@ In the following sections, we'll look at each of these functions in more detail.
   <img src="../img/5.8.png">
 </a>
 
+<a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/08-binary-operations.html"><h3>Try Yourself</h3></a>
+
 To use this library, we need to include it in our page. This library is written in CoffeeScript, a more user-friendly variant of JavaScript. To get this working, we have two options. We can add the CoffeeScript file and compile it on the fly, or we can precompile it to JavaScript and include it directly. For the first approach, we need to do the following:
 
 ```html

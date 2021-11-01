@@ -6,6 +6,8 @@ With THREE.ConvexGeometry, we can create a convex hull from a set of points. A c
   <img src="../img/5.1.png">
 </a>
 
+<a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/01-advanced-3d-geometries-convex.html"><h3>Try Yourself</h3></a>
+
 ## concepts
 
 - generate points
