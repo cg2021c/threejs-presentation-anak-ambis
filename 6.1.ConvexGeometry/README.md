@@ -7,11 +7,15 @@ With THREE.ConvexGeometry, we can create a convex hull from a set of points. A c
 </a>
 
 <a href="../learning-threejs-master/chapter-06/01-advanced-3d-geometries-convex.html"><h3>CODE</h3></a>
+
 <a href="../learning-threejs-master/chapter-06/01-advanced-3d-geometries-convex.html"><h3>CODE</h3></a>
+
 <a href="../learning-threejs-master/chapter-06/01-advanced-3d-geometries-convex.html"><h3>CODE</h3></a>
 
 <a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/01-advanced-3d-geometries-convex.html"><h3>Try Yourself</h3></a>
+
 <a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/01-advanced-3d-geometries-convex.html"><h3>Try Yourself</h3></a>
+
 <a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/01-advanced-3d-geometries-convex.html"><h3>Try Yourself</h3></a>
 
 ## concepts
