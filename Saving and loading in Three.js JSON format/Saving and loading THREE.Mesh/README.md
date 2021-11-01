@@ -7,7 +7,7 @@ To demonstrate saving and loading, we used a simple example based on **THREE.Tor
 we can create a **torus knot** and using the save button from the Save & Load menu, we can save the current geometry. For this example, we save using the HTML5 local storage API. This API allows us to easily store persistent information in the client's browser and retrieve it at a later time. <br>
 
 The following shows this example: <br>
-
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/75240358/139702862-f9d5ebca-a397-41c4-a523-70959b275fac.gif)  
 The only thing we need to do to export `THREE.Mesh` as JSON is the following: 
 ```
 var result = knot.toJSON();
