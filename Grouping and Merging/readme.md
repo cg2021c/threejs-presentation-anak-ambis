@@ -62,9 +62,3 @@ The full source code in [here](https://github.com/cg2021c/threejs-presentation-a
 | Before using THREE.Geometry.merge() | <img src="https://github.com/cg2021c/threejs-presentation-anak-ambis/blob/main/Grouping%20and%20Merging/image/picture3.jpg?raw=true">
 | :---: | :---: 
 | After using THREE.Geometry.merge() | <img src="https://github.com/cg2021c/threejs-presentation-anak-ambis/blob/main/Grouping%20and%20Merging/image/picture4.jpg?raw=true">
-<br>
-<br>
-<br>
-<br>
-
-## what's the difference between grouping and merging?
