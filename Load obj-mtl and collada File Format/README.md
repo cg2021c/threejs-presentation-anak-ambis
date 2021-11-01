@@ -112,5 +112,5 @@ loader.load("./dae/Truck_dae.dae", function (object) {
 ```
 
 #### Truck model from collada (.dae) format file
+![image](https://user-images.githubusercontent.com/55375390/139703780-a7c00b89-2002-468f-84a2-6692051f5563.png)
 
-...
