@@ -33,7 +33,7 @@ scene.add(arrow);
 
 ![screen-gif](https://media.giphy.com/media/t0wJi4NIbG5SkPQiii/giphy.gif)
 
-When using a group, we can still refer to, modify, and position the individual geometries.The only thing you need to remember is that all positions, rotations, and translations are done relative to the parent object.
+When using a group, we can still refer to, modify, and position the individual geometries.The only thing you need to remember is that all positions, rotations, and translations are done relative to the parent object.<br>
 ![screen-gif](https://media.giphy.com/media/kjQJzgdeNtr57gMhiq/giphy.gif)
 <br>
 <br>
