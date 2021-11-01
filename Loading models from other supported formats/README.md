@@ -29,6 +29,7 @@ Three.js.
 ## BABYLON
 The Babylon loader is slightly different from the other loaders. With this loader, we don't load a single THREE.Mesh or THREE.Geometry instance, but with this 
 loader, we load a complete scene, including lights.
+
 Usage
 1. Include ```<script type="text/javascript" src="../libs/BabylonLoader.js"></script>```
 2. Then load models 
@@ -108,3 +109,5 @@ group.add(mesh);
 For the connection, we must create a 3D path using the THREE.SplineCurve3 object. This path is used as input 
 for THREE.Tube and used to create the connection between the atoms. All the connections and atoms are added to a group, 
 and this group is added to the scene.
+
+Result [12-load-pdb.html](https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-08/12-load-pdb.html)
