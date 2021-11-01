@@ -11,3 +11,5 @@ geometries and cover the following subjects:
 - Additionally, we'll also show you how you can create new geometries from existing ones using binary operations provided by the Three.js extension, ThreeBSP.
 
 We'll start with the first one from this list, THREE.ConvexGeometry
+
+note: All the picture in 5.x is clickable. it will redirect to the particular code
