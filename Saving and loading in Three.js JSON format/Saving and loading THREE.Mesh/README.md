@@ -9,12 +9,12 @@ we can create a **torus knot** and using the save button from the Save & Load me
 The following shows this example: <br>
 ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/75240358/139702862-f9d5ebca-a397-41c4-a523-70959b275fac.gif)  
 The only thing we need to do to export `THREE.Mesh` as JSON is the following: 
-```
+```js
 var result = knot.toJSON();
 localStorage.setItem("json", JSON.stringify(result));
 ```
 This results in a JSON string :
-```
+```js
 {
     "metadata": {   
         "version": 4.3,
@@ -39,7 +39,7 @@ Three.js saves all the information about `THREE.Mesh`. To save this information 
 we have to do is call the `localStorage.setItem` function. The first argument is the key value (json) that we can later <br>
 use to retrieve the information we passed in as the second argument. <br><br>
 Loading `THREE.Mesh` back into Three.js:
-```
+```js
 var json = localStorage.getItem("json");
 
 if (json) {
