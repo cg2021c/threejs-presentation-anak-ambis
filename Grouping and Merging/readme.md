@@ -30,3 +30,5 @@ group.position, 10, 0x0000ff);
 scene.add(arrow);
 ```
 <img src="https://github.com/cg2021c/threejs-presentation-anak-ambis/blob/main/Grouping%20and%20Merging/image/picture2.jpg?raw=true">
+
+When using a group, we can still refer to, modify, and position the individual geometries.The only thing you need to remember is that all positions, rotations, and translations are done relative to the parent object.
