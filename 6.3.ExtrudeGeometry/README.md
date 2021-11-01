@@ -9,11 +9,15 @@ With THREE.ExtrudeGeometry, you can create a 3D object from a 2D shape. Before w
 </a>
 
 <a href="../learning-threejs-master/chapter-06/03-extrude-geometry.html"><h3>CODE</h3></a>
+
 <a href="../learning-threejs-master/chapter-06/03-extrude-geometry.html"><h3>CODE</h3></a>
+
 <a href="../learning-threejs-master/chapter-06/03-extrude-geometry.html"><h3>CODE</h3></a>
 
 <a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/03-extrude-geometry.html"><h3>Try Yourself</h3></a>
+
 <a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/03-extrude-geometry.html"><h3>Try Yourself</h3></a>
+
 <a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/03-extrude-geometry.html"><h3>Try Yourself</h3></a>
 
 In this example, we took the 2D shape we created in the previous chapter and used THREE.ExtrudeGeometry to convert it to 3D. As you can see in this screenshot, the shape is extruded along the z axis, which results in a 3D shape. The code to create THREE.ExtrudeGeometry is very easy:
