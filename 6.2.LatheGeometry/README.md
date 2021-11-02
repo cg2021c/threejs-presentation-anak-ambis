@@ -1,6 +1,6 @@
 # LatheGeometry
 
-THREE.LatheGeometry allows you to create shapes from a smooth curve. This curve is defined by a number of points (also called knots) and is most often called a spline. This spline is rotated around the central z axis of the object and results in vase-like and bell-like shapes. Once again, the easiest way to understand what THREE.LatheGeometry looks like is by looking at an example. This geometry is shown in 02-advanced-3d-geometrieslathe.html. The following screenshot taken from the example shows this geometry:
+THREE.LatheGeometry allows we to create shapes from a smooth curve. This curve is defined by a number of points (also called knots) and is most often called a spline. This spline is rotated around the central z axis of the object and results in vase-like and bell-like shapes. Once again, the easiest way to understand what THREE.LatheGeometry looks like is by looking at an example. This geometry is shown in 02-advanced-3d-geometrieslathe.html. The following screenshot taken from the example shows this geometry:
 
 <a href="../learning-threejs-master/chapter-06/02-advanced-3d-geometries-lathe.html">
   <img src="../img/5.2.png">
@@ -18,7 +18,7 @@ THREE.LatheGeometry allows you to create shapes from a smooth curve. This curve 
 
 <a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/02-advanced-3d-geometries-lathe.html"><h3>Try Yourself</h3></a>
 
-In the preceding screenshot, you can see the points used to create this geometry as a set of small red spheres. The positions of these points are passed in to THREE.LatheGeometry, together with a couple of other arguments. Before we look at all the arguments, let's look at the code used to create the individual points and how THREE.LatheGeometry uses this points:
+In the preceding screenshot, we can see the points used to create this geometry as a set of small red spheres. The positions of these points are passed in to THREE.LatheGeometry, together with a couple of other arguments. Before we look at all the arguments, let's look at the code used to create the individual points and how THREE.LatheGeometry uses this points:
 
 ```js
 function generatePoints(segments, phiStart, phiLength) {
@@ -38,7 +38,7 @@ function generatePoints(segments, phiStart, phiLength) {
 }
 ```
 
-In this piece of JavaScript, you can see that we generate 30 points whose x coordinate is based on a combination of sine and cosine functions, while the z coordinate is based on the i and count variables. This creates a spline visualized by the red dots in the preceding screenshot. Based on these points, we can create THREE.LatheGeometry. Besides the array of vertices, THREE.LatheGeometry takes a couple of other arguments. The following table lists all the arguments:
+In this piece of JavaScript, we can see that we generate 30 points whose x coordinate is based on a combination of sine and cosine functions, while the z coordinate is based on the i and count variables. This creates a spline visualized by the red dots in the preceding screenshot. Based on these points, we can create THREE.LatheGeometry. Besides the array of vertices, THREE.LatheGeometry takes a couple of other arguments. The following table lists all the arguments:
 
 | Parameter | Mandatory | Description                                                                                                                                                                     |
 | --------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
