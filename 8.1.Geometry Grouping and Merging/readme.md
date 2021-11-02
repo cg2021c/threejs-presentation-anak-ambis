@@ -59,6 +59,6 @@ scene.add(new THREE.Mesh(geometry, cubeMaterial));
 The full source code in [here](https://github.com/cg2021c/threejs-presentation-anak-ambis/blob/main/8.1.Geometry%20Grouping%20and%20Merging/02-merging.html)
 | Action | Result 
 | :---: | :---: 
-| Before using THREE.Geometry.merge() | <img src="https://github.com/cg2021c/threejs-presentation-anak-ambis/raw/main/Geometry%20Grouping%20and%20Merging/image/picture3.jpg?raw=true">
+| Before using THREE.Geometry.merge() | <img src="https://github.com/cg2021c/threejs-presentation-anak-ambis/blob/main/8.1.Geometry%20Grouping%20and%20Merging/image/picture3.jpg?raw=true">
 | :---: | :---: 
-| After using THREE.Geometry.merge() | <img src="https://github.com/cg2021c/threejs-presentation-anak-ambis/raw/main/Geometry%20Grouping%20and%20Merging/image/picture4.jpg?raw=true">
+| After using THREE.Geometry.merge() | <img src="https://github.com/cg2021c/threejs-presentation-anak-ambis/blob/main/8.1.Geometry%20Grouping%20and%20Merging/image/picture4.jpg?raw=true">
