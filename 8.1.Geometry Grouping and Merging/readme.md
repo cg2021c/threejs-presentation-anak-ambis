@@ -12,7 +12,7 @@ group.add(sphere);
 group.add(cube);
 scene.add(group);
 ```
-The full source code in [here](https://github.com/cg2021c/threejs-presentation-anak-ambis/blob/main/Grouping%20and%20Merging/01-grouping.html)
+The full source code in [here](https://github.com/cg2021c/threejs-presentation-anak-ambis/blob/main/8.1.Geometry%20Grouping%20and%20Merging/01-grouping.html)
 
 Creating groups is very easy. Every mesh we create can contain child elements, which can be added using the add function. The effect of adding a child object to a group is that we can move, scale, and rotate the parent object, and all the child objects will also be affected.
 | Action | Result 
@@ -56,7 +56,7 @@ geometry.merge(cubeMesh.geometry,cubeMesh.matrix);
 }
 scene.add(new THREE.Mesh(geometry, cubeMaterial));
 ```
-The full source code in [here](https://github.com/cg2021c/threejs-presentation-anak-ambis/blob/main/Grouping%20and%20Merging/02-merging.html)
+The full source code in [here](https://github.com/cg2021c/threejs-presentation-anak-ambis/blob/main/8.1.Geometry%20Grouping%20and%20Merging/02-merging.html)
 | Action | Result 
 | :---: | :---: 
 | Before using THREE.Geometry.merge() | <img src="https://github.com/cg2021c/threejs-presentation-anak-ambis/raw/main/Geometry%20Grouping%20and%20Merging/image/picture3.jpg?raw=true">
