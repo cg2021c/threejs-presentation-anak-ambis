@@ -1,6 +1,6 @@
 # Using binary operations to combine meshes
 
-In this section, we'll look at a different way of creating geometries. In this chapter so far, and in the previous Chapter 5, Learning to Work with Geometries, we used the default geometries provided by Three.js to create interesting-looking geometries. With the default set of properties, you can create beautiful models, but you are limited to what Three.js provides. In this section, we'll show you how you can combine these standard geometries to create new ones-a technique known as Constructive Solid Geometry (CSG). To do this, we use the Three.js extension ThreeBSP, which you can find online at https://github.com/skalnik/ThreeBSP. This additional library provides the following three functions:
+In this section, we'll look at a different way of creating geometries. In this chapter so far, and in the previous Chapter 5, Learning to Work with Geometries, we used the default geometries provided by Three.js to create interesting-looking geometries. With the default set of properties, we can create beautiful models, but we are limited to what Three.js provides. In this section, we'll show we how we can combine these standard geometries to create new ones-a technique known as Constructive Solid Geometry (CSG). To do this, we use the Three.js extension ThreeBSP, which we can find online at https://github.com/skalnik/ThreeBSP. This additional library provides the following three functions:
 
 | Parameter | Mandatory | Description                                                                                         |
 | --------- | --------- | --------------------------------------------------------------------------------------------------- |
@@ -8,7 +8,7 @@ In this section, we'll look at a different way of creating geometries. In this c
 | slices    | Yes       | This defines the number of parts the u value should be divided into.                                |
 | stacks    | Yes       | This defines the number of parts the v value should be divided into.                                |
 
-In the following sections, we'll look at each of these functions in more detail. The following screenshot shows an example of what you can create by just using the union and subtract functionalities one after the other:
+In the following sections, we'll look at each of these functions in more detail. The following screenshot shows an example of what we can create by just using the union and subtract functionalities one after the other:
 
 |  Action   |                                                   Result                                                    |
 | :-------: | :---------------------------------------------------------------------------------------------------------: |
@@ -53,7 +53,7 @@ function onReady() {
 }
 ```
 
-If we precompile CoffeeScript to JavaScript using the CoffeeScript command-line tool, we can include the resulting JavaScript file directly. Before we can do this, though, we need to install CoffeeScript. You can follow the installation instructions on the CoffeeScript website at http://coffeescript.org/. Once you've installed CoffeeScript, you can use the following command line to convert the CoffeeScript ThreeBSP file to JavaScript:
+If we precompile CoffeeScript to JavaScript using the CoffeeScript command-line tool, we can include the resulting JavaScript file directly. Before we can do this, though, we need to install CoffeeScript. We can follow the installation instructions on the CoffeeScript website at http://coffeescript.org/. Once we've installed CoffeeScript, we can use the following command line to convert the CoffeeScript ThreeBSP file to JavaScript:
 
 ```js
 coffee --compile ThreeBSP.coffee
