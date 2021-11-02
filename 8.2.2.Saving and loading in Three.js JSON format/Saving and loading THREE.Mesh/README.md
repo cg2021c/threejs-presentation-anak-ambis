@@ -8,6 +8,7 @@ we can create a **torus knot** and using the save button from the Save & Load me
 
 The following shows this example: <br>
 ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/75240358/139702862-f9d5ebca-a397-41c4-a523-70959b275fac.gif)  
+The full source code in [here](https://github.com/cg2021c/threejs-presentation-anak-ambis/blob/main/learning-threejs-master/chapter-08/03-load-save-json-object.html)  
 The only thing we need to do to export `THREE.Mesh` as JSON is the following: 
 ```js
 var result = knot.toJSON();
