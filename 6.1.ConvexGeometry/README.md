@@ -1,6 +1,6 @@
 # ConvexGeometry
 
-With THREE.ConvexGeometry, we can create a convex hull from a set of points. A convex hull is the minimal shape that encompasses all these points. The easiest way to understand this is by looking at an example. If you open up the 01-advanced-3d-geometriesconvex.html example, you'll see the convex hull for a random set of points. The following screenshot shows this geometry:
+With THREE.ConvexGeometry, we can create a convex hull from a set of points. A convex hull is the minimal shape that encompasses all these points. The easiest way to understand this is by looking at an example. If we open up the 01-advanced-3d-geometriesconvex.html example, we'll see the convex hull for a random set of points. The following screenshot shows this geometry:
 
 <a href="../learning-threejs-master/chapter-06/01-advanced-3d-geometries-convex.html">
   <img src="../img/5.1.png">
@@ -26,7 +26,7 @@ With THREE.ConvexGeometry, we can create a convex hull from a set of points. A c
 - pass the points to ConvexGeometry
 - add mesh and render
 
-In this example, we generate a random set of points, and based on these points, we create THREE.ConvexGeometry. In the example, you can click on redraw, which will generate 20 new points and draw the convex hull. If you try this for yourself, enable the material's transparency and set the opacity to a level below 1 to see the points that are used to create this geometry. These points are created as small THREE.SphereGeometry objects. THREE.ConvexGeometry isn't included in the standard Three.js distribution, so you have to include an additional JavaScript file to use this geometry. At the top of your HTML page, add the following:
+In this example, we generate a random set of points, and based on these points, we create THREE.ConvexGeometry. In the example, we can click on redraw, which will generate 20 new points and draw the convex hull. If we try this for ourself, enable the material's transparency and set the opacity to a level below 1 to see the points that are used to create this geometry. These points are created as small THREE.SphereGeometry objects. THREE.ConvexGeometry isn't included in the standard Three.js distribution, so we have to include an additional JavaScript file to use this geometry. At the top of our HTML page, add the following:
 
 ```html
 <script src="../../libs/three/geometries/ConvexGeometry.js></script>
@@ -61,7 +61,7 @@ function generatePoints() {
 }
 ```
 
-As you can see in this snippet of code, we create 20 random points (THREE.Vector3), which we push into an array. Next, we iterate this array and create THREE.SphereGeometry, whose position we set to one of these points (position.copy(point)). All the points are added to a group, so we can rotate them easily by just rotating the group. Once you have this set of points, creating THREE.ConvexGeometry from them is very easy, as shown in the following code snippet:
+As we can see in this snippet of code, we create 20 random points (THREE.Vector3), which we push into an array. Next, we iterate this array and create THREE.SphereGeometry, whose position we set to one of these points (position.copy(point)). All the points are added to a group, so we can rotate them easily by just rotating the group. Once we have this set of points, creating THREE.ConvexGeometry from them is very easy, as shown in the following code snippet:
 
 ```js
 // use the same points to create a convexgeometry
@@ -73,4 +73,4 @@ convexGeometry.computeFaceNormals();
 convexGeometry.normalsNeedUpdate = true;
 ```
 
-An array containing vertices (of the THREE.Vector3 type) is the only argument THREE.ConvexGeometry takes. If you look at this code, you can see that we explicitly call computeVertexNormals and computeFaceNormals. The vertex and face normal vectors help Three.js render the geometries as a smooth object. Most geometries already do this when they are created. For this geometry, however, this isn't done when the object is created so we need to call this explicitly
+An array containing vertices (of the THREE.Vector3 type) is the only argument THREE.ConvexGeometry takes. If we look at this code, we can see that we explicitly call computeVertexNormals and computeFaceNormals. The vertex and face normal vectors help Three.js render the geometries as a smooth object. Most geometries already do this when they are created. For this geometry, however, this isn't done when the object is created so we need to call this explicitly
