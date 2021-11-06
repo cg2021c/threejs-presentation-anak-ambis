@@ -14,15 +14,23 @@ const scene = new THREE.Scene()
 
 // Objects
 const geometry = new THREE.TorusGeometry( .7, .2, 16, 100 );
+// const points = [];
+// for ( let i = 0; i < 10; i ++ ) {
+// 	points.push( new THREE.Vector2( Math.sin( i * 0.2 ) * 10 + 5, ( i - 5 ) * 2 ) );
+// }
+// const geometry = new THREE.LatheGeometry( points );
+// const material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
+// const mesh = new THREE.Mesh( geometry, material );
+// scene.add( mesh );
 
 // Materials
 
 const material = new THREE.MeshBasicMaterial()
 material.color = new THREE.Color(0xff0000)
 
-// Mesh
-const sphere = new THREE.Mesh(geometry,material)
-scene.add(sphere)
+// // Mesh
+const mesh = new THREE.Mesh(geometry,material)
+scene.add(mesh)
 
 // Lights
 
@@ -90,7 +98,7 @@ const tick = () =>
     const elapsedTime = clock.getElapsedTime()
 
     // Update objects
-    sphere.rotation.y = .5 * elapsedTime
+    mesh.rotation.y = .5 * elapsedTime
 
     // Update Orbital Controls
     // controls.update()
