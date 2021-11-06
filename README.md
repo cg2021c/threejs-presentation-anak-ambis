@@ -13,3 +13,29 @@ geometries and cover the following subjects:
 We'll start with the first one from this list, THREE.ConvexGeometry
 
 note: All the picture in 6.x is clickable. it will redirect to the particular code
+
+
+
+6.1.ConvexGeometry:allam
+6.2.LatheGeometry:allam
+6.3.ExtrudeGeometry:arif
+6.4.TubeGeometry:ridho
+6.5.1.ShapeGeometry:erik
+6.5.2.ParametricGeometry:fajar
+6.6.Creating 3D text:fio
+6.7.Using binary operations to combine meshes:allam
+
+geometry grouping and merging
+ arif: grouping objects together
+ arif: merging multiple meshes into a single mesh
+Loading geometries from external resources
+ ridho: saving and loading in three.js json format
+ ridho: saving and loading three.mesh
+ allam: saving and loading a scene
+ allam: working with blender
+importing 3d file formats
+ erik: obj and mtl formats
+ erik: loading a COLLADA model
+ fajar: loading models from other supported formats
+ fajar: show proteins from PDB
+ fio: Creating a particle system from a PLY model
