@@ -121,4 +121,4 @@ See the base <a href="https://threejs.org/docs/index.html?q=lathe#api/en/core/Bu
 
 ### Source
 
-<a href="https://github.com/mrdoob/three.js/blob/master/src/geometries/TubeGeometry.js">src/geometries/LatheGeometry.js</a>
+<a href="https://github.com/mrdoob/three.js/blob/master/src/geometries/TubeGeometry.js">src/geometries/TubeGeometry.js</a>
