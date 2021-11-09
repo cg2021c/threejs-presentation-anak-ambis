@@ -1,12 +1,16 @@
 # Creating Particle system from PLY model
+PLY is a computer file format known as the Polygon File Format or the Stanford Triangle Format. It was principally designed to store three-dimensional data from 3D scanners.
+
 Working with the PLY format isn't that much different from the other formats. You include the loader, provide a callback,
 and visualize the model. For this example, however, we're going to do something different. Instead of rendering the 
 model as a mesh, we'll use the information from this model to create a particle system. The following screenshot shows this example:
 
 ![image](https://user-images.githubusercontent.com/73778173/139693299-aab083c6-ad8e-49f1-9865-d13072ff1b8c.png)
 
+<a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-08/13-load-PLY.html"><h3>Try Yourself</h3></a>
+
 The JavaScript code to render the preceding screenshot, as follows:
-```
+```js
 var loader = new THREE.PLYLoader();
 var group = new THREE.Object3D();
 loader.load("../assets/models/test.ply", function (geometry) {

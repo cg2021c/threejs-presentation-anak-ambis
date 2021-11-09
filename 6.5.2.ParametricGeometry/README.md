@@ -42,3 +42,43 @@ to THREE.ParametricGeometry. These are explained in the following table:
 | function  | Yes       | This is the function that defines the position of each vertex based on the u and v values provided. |
 | slices    | Yes       | This defines the number of parts the u value should be divided into.                                |
 | stacks    | Yes       | This defines the number of parts the v value should be divided into.                                |
+
+
+## ParametricGeometry
+
+extends BufferGeometry
+
+Generate geometry representing a parametric surface.
+
+### Code Example
+
+```js
+const geometry = new THREE.ParametricGeometry( THREE.ParametricGeometries.klein, 25, 25 );
+const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const klein = new THREE.Mesh( geometry, material );
+scene.add( klein );
+```
+
+### Constructor
+
+ParametricGeometry(func : Function, slices : Integer, stacks : Integer)
+func — A function that takes in a u and v value each between 0 and 1 and modifies a third Vector3 argument. Default is a function that generates a curved plane surface.
+slices — The count of slices to use for the parametric function. Default is 8.
+stacks — The count of stacks to use for the parametric function. Default is 8.
+
+### Properties
+
+See the base <a href="https://threejs.org/docs/index.html?q=lathe#api/en/core/BufferGeometry">BufferGeometry</a> class for common properties.
+
+.parameters : Object
+
+An object with a property for each of the constructor parameters. Any modification after instantiation does not change the geometry.
+
+### Methods
+
+See the base <a href="https://threejs.org/docs/index.html?q=lathe#api/en/core/BufferGeometry">BufferGeometry</a> class for common methods.
+
+### Source
+
+<a href="https://github.com/mrdoob/three.js/blob/master/src/geometries/ParametricGeometry.js">src/geometries/ParametricGeometry.js</a>
+
