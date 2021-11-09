@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Example 06.08 - Binary operations</title>
+    <script type="text/javascript" src="../libs/three.js"></script>
+
+    <script type="text/javascript" src="../libs/stats.js"></script>
+    <script type="text/javascript" src="../libs/dat.gui.js"></script>
+    <script type="text/javascript" src="../libs/spin.js"></script>
+    <script type="text/javascript" src="../libs/ThreeBSP.js"></script>
+    <style>
+        body {
+            /* set margin to 0 and overflow to hidden, to go fullscreen */
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="Stats-output">
+    </div>
+    <!-- Div which will hold the Output -->
+    <div id="WebGL-output">
+    </div>
+
+    <script type="text/javascript">
+        var scene = new THREE.Scene();
+        var cam = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 1, 100);
+        var renderer = new THREE.WebGLRenderer();
+
+
+        ///////scene
+        // scene box 1
+        const box = new THREE.BoxGeometry(1, 1, 1);
+        // const textures = new THREE.TextureLoader().load('../assets/textures/animals/cat.jpg');
+        const boxMat = new THREE.MeshBasicMaterial({
+            color: 0xff0000,
+            // wireframe: true,
+            // map: textures,
+        });
+        const boxMesh = new THREE.Mesh(box, boxMat);
+        scene.add(boxMesh);
+
+        // scene box2
+        const box2 = new THREE.BoxGeometry(1, 1, 1);
+        // const textures = new THREE.TextureLoader().load('../assets/textures/animals/cat.jpg');
+        const boxMat2 = new THREE.MeshLambertMaterial({
+            color: 0xff0000,
+            // wireframe: true,
+            // map: textures,
+            // emissive: 0xff0000,
+        });
+        const boxMesh2 = new THREE.Mesh(box2, boxMat2);
+        scene.add(boxMesh2);
+
+        // scene plane
+        const plane = new THREE.PlaneGeometry(1000, 1000, 500, 500);
+        const planeMat = new THREE.MeshBasicMaterial({
+            color: 0x00FF00,
+        });
+        const planeMesh = new THREE.Mesh(plane, planeMat);
+        planeMesh.position.set(0, -1, 0);
+        planeMesh.rotation.x = -Math.PI / 2;
+        scene.add(planeMesh);
+
+
+
+        // Make ExtrudeGeometry
+        const length = 1,
+            width = 1;
+
+        const shape = new THREE.Shape();
+        shape.moveTo(0, 0);
+        shape.lineTo(0, 1);
+        shape.lineTo(1, 1);
+        shape.lineTo(1, 0);
+        shape.lineTo(0, 0);
+
+
+        const extrudeSettings = {
+            amount: 0,
+            bevelThickness: 0,
+            bevelSize: 0,
+            bevelSegments: 0,
+            bevelEnabled: 0,
+            curveSegments: 1,
+            steps: 1
+
+            // amount: 2,
+            // bevelThickness: 1,
+            // bevelSize: 1,
+            // bevelSegments: 1,
+            // bevelEnabled: 1,
+            // curveSegments: 1,
+            // steps: 1
+        };
+
+        const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+        const material = new THREE.MeshLambertMaterial({
+            color: 0xff0000,
+            // wireframe: true,
+            // map: textures,
+        });
+        //make merge
+        geometry.merge(boxMesh2);
+        const mesh = new THREE.Mesh(geometry, material);
+
+
+
+
+        scene.add(mesh);
+
+        //make Group 
+        const group = new THREE.Group();
+        group.add(boxMesh);
+        group.add(boxMesh2);
+
+        scene.add(group);
+
+        /// light
+        // ambient
+        // var ambientLight = new THREE.AmbientLight(0x404040);
+        // scene.add(ambientLight);
+        // pointlight
+        var pointLight = new THREE.PointLight(0xff0000, 0.5, 50);
+        pointLight.position.set(2, 2, 2);
+        scene.add(pointLight);
+        scene.add(new THREE.PointLightHelper(pointLight, 0.2, 0x00ff00));
+
+        ////// camera
+        cam.position.x = 0;
+        cam.position.z = 20;
+
+
+        ////// render
+        renderer.setSize(innerWidth, innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        function draw() {
+            requestAnimationFrame(draw);
+            mesh.position.x = -5;
+            mesh.rotation.x += 0.01;
+            // boxMesh.rotation.y += 0.01;
+            // boxMesh2.rotation.y += 0.01;
+            // boxMesh.rotation.x += 0.01;
+            // boxMesh2.rotation.x += 0.01;
+            group.rotation.x += 0.01;
+            group.rotation.y += 0.01;
+            boxMesh2.position.x = 2;
+            renderer.render(scene, cam);
+        }
+
+        draw();
+
+
+
+        // const geo_saya = new THREE.BufferGeometry();
+        // let vertices = new Float32Array([-1.0, -1.0, 0.0,
+        //     1.0, 1.0, 0.0, -1.0, 1.0, 0.0,
+        // ]);
+        // geo_saya.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+        // const mat_saya = new THREE.MeshBasicMaterial({
+        //     color: 0xff0000
+        // });
+        // let mesh_saya = new THREE.Mesh(geo_saya, mat_saya);
+        // scene.add(mesh_saya);
+    </script>
