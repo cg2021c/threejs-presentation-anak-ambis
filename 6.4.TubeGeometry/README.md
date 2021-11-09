@@ -8,14 +8,6 @@ THREE.TubeGeometry creates a tube that extrudes along a 3D spline. we specify th
 
 <a href="../learning-threejs-master/chapter-06/04-extrude-tube.html"><h3>CODE</h3></a>
 
-<a href="../learning-threejs-master/chapter-06/04-extrude-tube.html"><h3>CODE</h3></a>
-
-<a href="../learning-threejs-master/chapter-06/04-extrude-tube.html"><h3>CODE</h3></a>
-
-<a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/04-extrude-tube.html"><h3>Try Yourself</h3></a>
-
-<a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/04-extrude-tube.html"><h3>Try Yourself</h3></a>
-
 <a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/04-extrude-tube.html"><h3>Try Yourself</h3></a>
 
 As we can see in this example, we generate a number of random points and use those points to draw the tube. With the controls in the upper-right corner, we can define how the tube looks or generate a new tube by clicking on the newPoints button. The code needed to create a tube is very simple, as follows:
@@ -114,11 +106,3 @@ An array of Vector3 normals
 
 .binormals : Array
 An array of Vector3 binormals
-
-### Methods
-
-See the base <a href="https://threejs.org/docs/index.html?q=lathe#api/en/core/BufferGeometry">BufferGeometry</a> class for common methods.
-
-### Source
-
-<a href="https://github.com/mrdoob/three.js/blob/master/src/geometries/TubeGeometry.js">src/geometries/TubeGeometry.js</a>
