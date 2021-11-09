@@ -10,7 +10,7 @@ model as a mesh, we'll use the information from this model to create a particle 
 <a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-08/13-load-PLY.html"><h3>Try Yourself</h3></a>
 
 The JavaScript code to render the preceding screenshot, as follows:
-```
+```js
 var loader = new THREE.PLYLoader();
 var group = new THREE.Object3D();
 loader.load("../assets/models/test.ply", function (geometry) {
