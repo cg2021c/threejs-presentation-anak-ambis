@@ -20,22 +20,35 @@ With THREE.ExtrudeGeometry, we can create a 3D object from a 2D shape. Before we
 
 <a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-06/03-extrude-geometry.html"><h3>Try Yourself</h3></a>
 
-In this example, we took the 2D shape we created in the previously and used THREE.ExtrudeGeometry to convert it to 3D. As we can see in this screenshot, the shape is extruded along the z axis, which results in a 3D shape. The code to create THREE.ExtrudeGeometry is very easy:
+In this example, we took the 2D shape we created in the previously and used THREE.ExtrudeGeometry to convert it to 3D. As we can see in this screenshot, the shape is extruded along the z axis, which results in a 3D shape. The code to create THREE.ExtrudeGeometry is very easy, in this section we try to use code example from threejs documentation:
 
 ```js
-var options = {
-  amount: controls.amount,
-  bevelThickness: controls.bevelThickness,
-  bevelSize: controls.bevelSize,
-  bevelSegments: controls.bevelSegments,
-  bevelEnabled: controls.bevelEnabled,
-  curveSegments: controls.curveSegments,
-  steps: controls.steps,
+const length = 12, width = 8;
+
+const shape = new THREE.Shape();
+shape.moveTo( 0,0 );
+shape.lineTo( 0, width );
+shape.lineTo( length, width );
+shape.lineTo( length, 0 );
+shape.lineTo( 0, 0 );
+
+const extrudeSettings = {
+	steps: 2,
+	depth: 16,
+	bevelEnabled: true,
+	bevelThickness: 1,
+	bevelSize: 1,
+	bevelOffset: 0,
+	bevelSegments: 1
 };
-var geom = new THREE.ExtrudeGeometry(drawShape(), options);
+
+const geometry = new THREE.ExtrudeGeometry( shape, extrudeSettings );
+const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const mesh = new THREE.Mesh( geometry, material ) ;
+scene.add( mesh );
 ```
 
-In this code, we created the shape with the drawShape() function just as we did in the previous chapter. This shape is passed on to the THREE.ExtrudeGeometry constructor together with an options object. With the options object, we can define exactly how the shape should be extruded. The following table explains the options we can pass in
+In this code, we created the shape with the new THREE.Shape() . This shape is passed on to the THREE.ExtrudeGeometry constructor together with an extrudeSettings object. With the extrudeSettings object, we can define exactly how the shape should be extruded. The following table explains the options we can pass in
 to THREE.ExtrudeGeometry:
 
 | Parameter      | Mandatory | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -57,34 +70,6 @@ extends BufferGeometry
 
 Creates extruded geometry from a path shape.
 
-### Code Example
-
-```js
-const length = 12,
-  width = 8;
-
-const shape = new THREE.Shape();
-shape.moveTo(0, 0);
-shape.lineTo(0, width);
-shape.lineTo(length, width);
-shape.lineTo(length, 0);
-shape.lineTo(0, 0);
-
-const extrudeSettings = {
-  steps: 2,
-  depth: 16,
-  bevelEnabled: true,
-  bevelThickness: 1,
-  bevelSize: 1,
-  bevelOffset: 0,
-  bevelSegments: 1,
-};
-
-const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const mesh = new THREE.Mesh(geometry, material);
-scene.add(mesh);
-```
 
 ### Constructor
 
