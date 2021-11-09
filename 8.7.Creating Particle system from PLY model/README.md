@@ -1,4 +1,6 @@
 # Creating Particle system from PLY model
+PLY is a computer file format known as the Polygon File Format or the Stanford Triangle Format. It was principally designed to store three-dimensional data from 3D scanners.
+
 Working with the PLY format isn't that much different from the other formats. You include the loader, provide a callback,
 and visualize the model. For this example, however, we're going to do something different. Instead of rendering the 
 model as a mesh, we'll use the information from this model to create a particle system. The following screenshot shows this example:
