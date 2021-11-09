@@ -7,6 +7,8 @@ model as a mesh, we'll use the information from this model to create a particle 
 
 ![image](https://user-images.githubusercontent.com/73778173/139693299-aab083c6-ad8e-49f1-9865-d13072ff1b8c.png)
 
+<a href="https://cg2021c.github.io/threejs-presentation-anak-ambis/learning-threejs-master/chapter-08/13-load-PLY.html"><h3>Try Yourself</h3></a>
+
 The JavaScript code to render the preceding screenshot, as follows:
 ```
 var loader = new THREE.PLYLoader();
